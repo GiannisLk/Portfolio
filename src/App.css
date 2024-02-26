@@ -1,0 +1,88 @@
+.App {
+  text-align: center;
+  margin: 20px;
+  color: white;
+}
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Ensures the video is behind other content */
+}
+#bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+#mainComponent{
+  transition: transform 0.75s ease;
+}
+
+#profileImage{
+  border-radius: 50%;
+  height: 200px;
+  -webkit-user-drag: none;
+}
+
+h1, h2{
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+#categoriesList{
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+#categoriesList li{
+  list-style-type: none;
+  display: inline-block;
+  position: relative;
+  margin: 5px 5px 0;
+  padding: 5px 5px 0;
+  border: 1px solid #d4d6d5;
+  border-radius: 17px;
+  height: 270px;
+  width: 170px;
+  transition-property: margin, box shadow;
+  transition-duration: 0.3s, 0.1s;
+  transition-timing-function: ease,ease;
+  min-width: 120px;
+}
+
+#categoriesList li:hover{
+  margin-top: 0;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+#categoriesList h2{
+  font-weight: bold;
+}
+
+#categoriesList h2, #categoriesList p{
+  display: block;
+}
+
+#categoriesList .showMore{
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.showMore{
+  color: white;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
