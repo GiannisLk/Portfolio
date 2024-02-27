@@ -6,6 +6,7 @@ import Main from './Components/Main';
 
 function App() {
 
+  // Initial background video speed set using useEffect
   useEffect( ()=>{
     const setPlaybackRate = () => {
       const video = document.getElementById('bg-video');

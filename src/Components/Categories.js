@@ -1,7 +1,10 @@
 import React, {useState} from 'react'
 import App from '../App'
 import Main from './Main';
+import Education from './Education';
 
+
+// List Hover and Hover end to apply speed up and slow down effect on background video 
 const ListHover = () => {
     const video = document.getElementById('bg-video');
     if (video) {
@@ -16,6 +19,7 @@ const HoverEnd = () => {
     }    
 }
 
+// Move section effect when a category is clicked
 const sectionMove = () => {
     const block = document.getElementById('mainComponent');
     if (block) {
@@ -25,6 +29,11 @@ const sectionMove = () => {
 
 
 function Categories() {
+    const [isComponentVisible, setIsComponentVisible] = useState(false);
+
+    function  handleComponentVisibility(){
+        setIsComponentVisible(true);
+    }
 
   return (
     <div>
@@ -32,7 +41,7 @@ function Categories() {
             <li onMouseOver={ListHover} onMouseOut={HoverEnd}> 
                 <h2>Education</h2>
                 <p>Explore my academic journey and qualifications</p>
-                <p className='showMore' onClick={sectionMove}>Show more</p>
+                <p className='showMore' onClick={() => { sectionMove(); handleComponentVisibility();}}>Show more</p>
             </li>
             <li onMouseOver={ListHover} onMouseOut={HoverEnd}>
                 <h2>Career</h2>
@@ -50,6 +59,8 @@ function Categories() {
                 <p className='showMore'>Show more</p>
             </li>
         </ul>
+
+        {isComponentVisible && <Education/>}
     </div>
   )
 }

@@ -3,6 +3,8 @@
   margin: 20px;
   color: white;
 }
+
+/* Background video CSS */
 .video-container {
   position: fixed;
   top: 0;
@@ -20,6 +22,7 @@
   min-height: 100%;
 }
 
+/* Main Page CSS */
 #mainComponent{
   transition: transform 0.75s ease;
 }
@@ -81,8 +84,4 @@ h1, h2{
 }
 
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+
