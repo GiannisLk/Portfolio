@@ -21,18 +21,28 @@ const HoverEnd = () => {
 
 // Move section effect when a category is clicked
 const sectionMove = () => {
-    const block = document.getElementById('mainComponent');
-    if (block) {
-        block.style.transform = 'translateX(-100%)';
+    const block = document.getElementById('mainPage');
+    if(block) {
+        block.style.transform = 'translateX(-200%)';
+        setTimeout(() => {
+            block.style.display = "none";
+        }, 750);
     }
 }
 
 
-function Categories() {
+//The function receives the prop 'onVisibilityChange', which is a callback function passed from the parent component,
+//which is Main
+function Categories({onVisibilityChange}) {
     const [isComponentVisible, setIsComponentVisible] = useState(false);
 
-    function  handleComponentVisibility(){
-        setIsComponentVisible(true);
+//When the a element is clicked, in this function, the state in this component is set to 'true', as well as the value
+//in the callback function, so that it can be sent to the parent component and render the new component
+    const  handleComponentVisibility = () =>{
+        setTimeout(() => {
+            setIsComponentVisible(true);
+            onVisibilityChange(true);
+        }, 750);
     }
 
   return (
@@ -41,7 +51,7 @@ function Categories() {
             <li onMouseOver={ListHover} onMouseOut={HoverEnd}> 
                 <h2>Education</h2>
                 <p>Explore my academic journey and qualifications</p>
-                <p className='showMore' onClick={() => { sectionMove(); handleComponentVisibility();}}>Show more</p>
+                <p className='showMore' onClick={() => {sectionMove(); handleComponentVisibility();}}>Show more</p>
             </li>
             <li onMouseOver={ListHover} onMouseOut={HoverEnd}>
                 <h2>Career</h2>
@@ -55,7 +65,7 @@ function Categories() {
             </li>
             <li onMouseOver={ListHover} onMouseOut={HoverEnd}>
                 <h2>CV</h2>
-                <p>Access my CV for a detailed overview of my credentials, with an option to download</p>
+                <p>View and download my CV for a detailed overview of my credentials</p>
                 <p className='showMore'>Show more</p>
             </li>
         </ul>

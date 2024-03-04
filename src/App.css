@@ -4,6 +4,11 @@
   color: white;
 }
 
+body{
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
 /* Background video CSS */
 .video-container {
   position: fixed;
@@ -23,8 +28,8 @@
 }
 
 /* Main Page CSS */
-#mainComponent{
-  transition: transform 0.75s ease;
+#mainPage{
+  transition: transform 1.5s ease;
 }
 
 #profileImage{
@@ -82,6 +87,27 @@ h1, h2{
 .showMore{
   color: white;
 }
+.showMore:hover{
+  cursor: pointer;
+}
 
 
+/* Education Div Render from right to left */
+#EducationContent{
+  position: absolute;
+  top: 20%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  animation: slideIn 0.75s forwards;
+}
 
+
+@keyframes slideIn {
+  0% {
+    left: 100%; /* Start position: fully outside the viewport on the right */
+  }
+  100% {
+    left: 50%; /* End position: centered in the viewport */
+  }
+}
